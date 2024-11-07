@@ -13,7 +13,7 @@ number1: int = int(input("enter first number:"))
 number2: int = int(input("enter second number:"))
 print("avg:", (number1 + number2) / 2)
 #
-# # 3:
+# 3:
 number1: int = int(input("enter first number:"))
 number2: int = int(input("enter second number:"))
 number3: int = int(input("enter third number:"))
@@ -59,6 +59,53 @@ print(f"reverse number:{number_2_digits % 10 * 10 + number_2_digits // 10}")
 number: int = int(input("enter a number:"))
 print(f"the number {number} is {"even" if number % 2 == 0 else "odd"}")
 
+# 10:
+
+salary = int(input("enter origin salary to pay (bigger than 0):"))
+tax: float = 0
+origin = salary
+while True:
+
+    if origin < 6000:
+        tax = 0
+        break
+    else:
+        salary -= 6000
+    if origin > 12000:
+        tax = (12000 - 6000) * 0.1
+        salary -= 6000
+    else:
+        tax += salary * 0.1
+        break
+    if origin > 18000:
+        tax += (18_000 - 12000) * 0.2
+        salary -= 6000
+    else:
+        tax += salary * 0.2
+        break
+    if origin > 25000:
+        tax += (25000 - 18000) * 0.3
+        salary -= 18000
+    else:
+        tax += salary * 0.3
+        break
+    if origin > 35000:
+        tax += (35000 - 25000) * 0.4
+        salary -= 25000
+    else:
+        tax += salary * 0.4
+        break
+    if origin > 50000:
+        tax += (50000 - 35000) * 0.45
+        salary -= 35000
+    else:
+        tax += salary * 0.45
+        break
+    if origin > 50000:
+        tax += salary * 0.45
+        break
+print(f" Total tax for your {origin} are : {tax}")
+
 # 11:
 is_allow = False
 age: int = int(input("enter age:"))
@@ -82,8 +129,8 @@ for i in range(top):
 print()
 
 # 2
-number1:int = int(input("enter first number"))
-number2:int = int(input("enter second number"))
+number1: int = int(input("enter first number"))
+number2: int = int(input("enter second number"))
 if number1 > number2:
     for i in range(number2, number1):
         print(i, end="")
