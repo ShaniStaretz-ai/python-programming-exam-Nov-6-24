@@ -63,43 +63,43 @@ salary = int(input("enter origin salary to pay (bigger than 0):"))
 tax: float = 0
 origin = salary
 while True:
-    if origin < 6000:
+    if origin < 6_000:
         tax = 0
         break
     else:
-        salary -= 6000
-    if origin > 12000:
-        tax = (12000 - 6000) * 0.1
-        salary -= 6000
+        salary -= 6_000
+    if origin > 12_000:
+        tax += 6_000 * 0.1
+        salary -= 6_000
     else:
         tax += salary * 0.1
         break
-    if origin > 18000:
-        tax += (18_000 - 12000) * 0.2
-        salary -= 6000
+    if origin > 18_000:
+        tax += 6_000 * 0.2
+        salary -= 6_000
     else:
         tax += salary * 0.2
         break
-    if origin > 25000:
-        tax += (25000 - 18000) * 0.3
-        salary -= 18000
+    if origin > 25_000:
+        tax += 7_000 * 0.3
+        salary -= 7_000
     else:
         tax += salary * 0.3
         break
-    if origin > 35000:
-        tax += (35000 - 25000) * 0.4
-        salary -= 25000
+    if origin > 35_000:
+        tax += 10_000 * 0.4
+        salary -= 10_000
     else:
         tax += salary * 0.4
         break
-    if origin > 50000:
-        tax += (50000 - 35000) * 0.45
-        salary -= 35000
+    if origin > 50_000:
+        tax += 15_000 * 0.45
+        salary -= 15_000
     else:
         tax += salary * 0.45
         break
-    if origin > 50000:
-        tax += salary * 0.45
+    if origin > 50_000:
+        tax += salary * 0.51
         break
 print(f" Total tax for your {origin} are : {tax}")
 
