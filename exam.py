@@ -1,7 +1,6 @@
+from statistics import mean
 # conditions:
 # 1
-from statistics import mean
-
 number1: float = float(input("enter first number:"))
 number2: float = float(input("enter second number:"))
 smaller: float = number1 if number1 < number2 else number2
@@ -64,7 +63,6 @@ salary = int(input("enter origin salary to pay (bigger than 0):"))
 tax: float = 0
 origin = salary
 while True:
-
     if origin < 6000:
         tax = 0
         break
@@ -249,6 +247,7 @@ while divider <= (x ** 0.5 + 1):
 print(f" the number {x} is {"prime" if is_prime else "not prime"}")
 
 # complex loops:
+#1
 temperature: float = -1
 total: int = 12
 list_temp: list[float] = []
