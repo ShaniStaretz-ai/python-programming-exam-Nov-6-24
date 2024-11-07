@@ -4,15 +4,15 @@ from statistics import mean
 
 number1: float = float(input("enter first number:"))
 number2: float = float(input("enter second number:"))
-bigger: float = number1 if number1 > number2 else number2
+smaller: float = number1 if number1 < number2 else number2
 for _ in range(3):
-    print(bigger)
+    print(smaller)
 
-# # 2:
+# 2:
 number1: int = int(input("enter first number:"))
 number2: int = int(input("enter second number:"))
 print("avg:", (number1 + number2) / 2)
-#
+
 # 3:
 number1: int = int(input("enter first number:"))
 number2: int = int(input("enter second number:"))
@@ -24,7 +24,7 @@ elif number2 > number3:
     bigger = number2
 else:
     bigger = number3
-print(f"the maximum of the the numbers:{number1},{number2},{number3} is: {bigger}")
+print(f"the bigger of the 3 numbers: {number1}, {number2}, {number3} is: {bigger}")
 
 # 4
 movie_len = int(input("enter movie length:"))
@@ -44,7 +44,7 @@ while True:
     if not 0 < number_2_digits < 99:
         print("try again")
         continue;
-    print(f"sum of the number {number_2_digits} is: {number_2_digits // 10 + number_2_digits % 10}")
+print(f"sum of the number {number_2_digits} is: {number_2_digits // 10 + number_2_digits % 10}")
 
 # 8:
 while True:
@@ -60,7 +60,6 @@ number: int = int(input("enter a number:"))
 print(f"the number {number} is {"even" if number % 2 == 0 else "odd"}")
 
 # 10:
-
 salary = int(input("enter origin salary to pay (bigger than 0):"))
 tax: float = 0
 origin = salary
@@ -143,20 +142,21 @@ print()
 n = int(input("enter number:"))
 if n % 2 == 1:
     n += 1
-for i in range(n, 2):
-    print(i)
+for i in range(0,n+2, 2):
+    print(i,end=" ")
+print()
 
 # 4
 max_num: int = int(input("enter max number number"))
 den: int = int(input("enter divider number"))
 print("the dividable numbers are: ")
-for i in range(max_num):
+for i in range(0,max_num+1):
     if i % den == 0:
         print(i, end=" ")
 print()
 
 # data analysis:
-# # 1
+# 1
 SENTINEL: int = -99
 my_sum: int = None
 while True:
@@ -170,7 +170,6 @@ while True:
 print(f"my_sum:{my_sum}")
 
 # 2:
-
 max_num: int = None
 min_num: int = None
 while True:
@@ -198,7 +197,7 @@ print(f"the max number is {max_num} in index:{max_index + 1}")
 number1: int = int(input("enter a number:"))
 number2: int = int(input("enter multiple number:"))
 result = 0
-for i in range(number2):
+for _ in range(number2):
     result += number1
 print("the result is:", result)
 
@@ -206,7 +205,7 @@ print("the result is:", result)
 number1: int = int(input("enter a number:"))
 number2: int = int(input("enter power number:"))
 result = 1
-for i in range(number2):
+for _ in range(number2):
     result *= number1
 print("the result is:", result)
 
@@ -225,10 +224,10 @@ else:
 # 7:
 number1: int = int(input("enter first number:"))
 number2: int = int(input("enter second number:"))
-smaller = number1 if number1 < number2 else number2
-for i in range(smaller, 0, -1):
+smaller:int = number1 if number1 < number2 else number2
+for i in range(smaller, 1, -1):
     if number1 % i == 0 and number2 % i == 0:
-        print(i)
+        print("gsd:",i)
         break
 
 # 8:
@@ -239,8 +238,8 @@ if x == 2:
     is_prime = True
 elif x % 2 == 0:
     is_prime = False
-divider: int = 3
 
+divider: int = 3
 while divider <= (x ** 0.5 + 1):
     if x % divider == 0:
         is_prime = False
@@ -255,16 +254,18 @@ total: int = 12
 list_temp: list[float] = []
 while len(list_temp) < total:
     try:
-        temperature = float(input("enter temp:"))
-        if temperature < -5 or temperature > 40:
+        temperature = float(input("enter temperature:"))
+        if temperature < -5 or temperature > 40:# if invalid data , stop and print only!
             print("wrong data")
             break
         print("correct data")
-        if temperature == 0 and temperature == list_temp[len(list_temp) - 1]:
+        if not temperature and( list_temp and not list_temp[len(list_temp) - 1]):
             continue
         list_temp.append(temperature)
     except ValueError:
-        print("invalid number")
+        print("ERROR: invalid number")
+    except Exception as e:
+        print("ERROR:", e)
 else:
     if list_temp:
         print("avg:", mean(list_temp))
@@ -272,7 +273,6 @@ else:
         print("min:", min(list_temp))
 
 # 2
-
 count_list: list[int] = [0] * 3
 required_count: int = 44
 country_index: int = 1
